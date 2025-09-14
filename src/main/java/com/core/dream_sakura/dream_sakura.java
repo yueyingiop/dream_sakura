@@ -1,13 +1,11 @@
 package com.core.dream_sakura;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.core.dream_sakura.blocks.RegistryBlock;
 import com.core.dream_sakura.blocks.entity.RegistryBlockEntity;
+import com.core.dream_sakura.entity.RegistryEntities;
 import com.core.dream_sakura.items.RegistryItem;
 import com.core.dream_sakura.network.PacketHandler;
 import com.core.dream_sakura.sounds.RegistrySound;
@@ -42,6 +40,7 @@ public class dream_sakura
             output.accept(RegistryItem.RGB_HALO.get());
             output.accept(RegistryItem.DREAM_FINALE.get());
             output.accept(RegistryItem.BASIC_HALO.get());
+            output.accept(RegistryItem.ALS_1_HALO.get());
             output.accept(RegistryItem.CRYSTAL_ITEM.get());
             output.accept(RegistryItem.CRYSTAL_BLACK_ITEM.get());
             output.accept(RegistryItem.CRYSTAL_BLUE_ITEM.get());
@@ -62,6 +61,7 @@ public class dream_sakura
             output.accept(RegistryItem.TEST_MUSIC_DISC_ITEM.get());
             output.accept(RegistryItem.PSIONIC_SCEPTER.get());
             output.accept(RegistryItem.ENDER_SLAYER.get());
+            output.accept(RegistryItem.THE_ETERNAL_ROTATOR.get());
         }).build()
     );
 
@@ -70,6 +70,7 @@ public class dream_sakura
         IEventBus modEventBus = context.getModEventBus();
 
         CREATIVE_MODE_TABS.register(modEventBus);  // 注册创造模式物品栏
+        RegistryEntities.ENTITYS.register(modEventBus); // 注册实体
         RegistryItem.ITEMS.register(modEventBus);  // 注册物品
         RegistryBlock.BLOCKS.register(modEventBus);  // 注册方块
         RegistryBlockEntity.BLOCK_ENTITY_TYPES.register(modEventBus);  // 注册方块实体

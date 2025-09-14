@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "particle": "dream_sakura:item/weapon/the_eternal_rotator"
+    }
+}

@@ -1,0 +1,93 @@
+{
+  "parent": "builtin/entity",
+  "textures": {
+    "particle": "dream_sakura:item/weapon/the_eternal_rotator"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        45,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -9
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        45,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -9
+      ],
+      "scale": [
+        1.5,
+        1.5,
+        1
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        45,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -5
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        45,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        -5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        0,
+        -180,
+        0
+      ],
+      "translation": [
+        0,
+        -8,
+        0
+      ]
+    },
+    "head": {
+      "scale": [
+        0,
+        0,
+        0
+      ]
+    },
+    "fixed": {
+      "translation": [
+        0,
+        -8,
+        0
+      ]
+    }
+  }
+  
+}
