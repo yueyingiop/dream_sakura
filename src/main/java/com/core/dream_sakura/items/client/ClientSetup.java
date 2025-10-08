@@ -31,7 +31,7 @@ public class ClientSetup {
         );
 
         CuriosRendererRegistry.register(
-            RegistryItem.TEST_HALO.get(), 
+            RegistryItem.HOSHINO_HALO.get(), 
             () -> new GeckoCurioRenderer<>(decorationRenderer,CurioRendererType.HALO_UNCOMMON)
         );
         CuriosRendererRegistry.register(

@@ -5,6 +5,11 @@
 
     "tooltip.dream_sakura.shift_prompt": "按住 %s 查看介绍详情",
     "tooltip.dream_sakura.ctrl_prompt": "按住 %s 查看效果详情",
+    "tooltip.dream_sakura.level": "等级: %s / 95",
+    "tooltip.dream_sakura.xp": "经验: %s / %s",
+    "tooltip.dream_sakura.baseXp": "提供 %s 基础经验",
+    
+    "message.dream_sakura.halo_max_level": "恭喜你已经达到等级上限!",
     
     "item.dream_sakura.dream_finale": "梦幻终序",
     "tooltip.dream_sakura.dream_finale.base": "至此，新序诞生",

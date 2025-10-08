@@ -21,15 +21,15 @@ public class PacketHandler {
     
     public static void register() {
         INSTANCE.registerMessage(id++, 
-                SkillTriggerPacket.class, 
-                SkillTriggerPacket::encode, 
-                SkillTriggerPacket::decode, 
-                SkillTriggerPacket::handle);
+            SkillTriggerPacket.class, 
+            SkillTriggerPacket::encode, 
+            SkillTriggerPacket::decode, 
+            SkillTriggerPacket::handle);
         INSTANCE.registerMessage(id++, 
-                PlayMusicPacket.class, 
-                PlayMusicPacket::encode, 
-                PlayMusicPacket::decode, 
-                PlayMusicPacket::handle);
+            PlayMusicPacket.class, 
+            PlayMusicPacket::encode, 
+            PlayMusicPacket::decode, 
+            PlayMusicPacket::handle);
     }
     
     // 发送给服务端,用于处理客户端请求

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.core.dream_sakura.blocks.RegistryBlock;
 import com.core.dream_sakura.blocks.entity.RegistryBlockEntity;
+import com.core.dream_sakura.effect.RegistryEffect;
 import com.core.dream_sakura.entity.RegistryEntities;
 import com.core.dream_sakura.items.RegistryItem;
 import com.core.dream_sakura.network.PacketHandler;
@@ -41,6 +42,7 @@ public class dream_sakura
             output.accept(RegistryItem.DREAM_FINALE.get());
             output.accept(RegistryItem.BASIC_HALO.get());
             output.accept(RegistryItem.ALS_1_HALO.get());
+            output.accept(RegistryItem.HOSHINO_HALO.get());
             output.accept(RegistryItem.CRYSTAL_ITEM.get());
             output.accept(RegistryItem.CRYSTAL_BLACK_ITEM.get());
             output.accept(RegistryItem.CRYSTAL_BLUE_ITEM.get());
@@ -75,6 +77,7 @@ public class dream_sakura
         RegistryBlock.BLOCKS.register(modEventBus);  // 注册方块
         RegistryBlockEntity.BLOCK_ENTITY_TYPES.register(modEventBus);  // 注册方块实体
         RegistrySound.SOUNDS.register(modEventBus);  // 注册声音
+        RegistryEffect.EFFECTS.register(modEventBus); // 注册效果
 
         // 注册自身到服务器和其他感兴趣的游戏事件
         MinecraftForge.EVENT_BUS.register(this);

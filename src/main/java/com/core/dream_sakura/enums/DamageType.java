@@ -19,6 +19,12 @@ public enum DamageType {
                     source.is(DamageTypes.ON_FIRE) || 
                     source.is(DamageTypes.LAVA);
         }// 免疫火焰伤害
+    },
+    NULL{
+        @Override
+        public boolean shouldImmune(DamageSource source) {
+            return false;
+        } // 不免疫任何伤害
     };
     public abstract boolean shouldImmune(DamageSource source);
 }

@@ -21,8 +21,10 @@ import com.core.dream_sakura.skill.SkillRegistry;
 import com.core.dream_sakura.tooltip.TooltipHelper;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Abilities;
 import net.minecraft.world.entity.player.Player;
@@ -47,7 +49,7 @@ public class DecorationItem extends Item implements ICurioItem, GeoItem, IDamage
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private final String itemId;
     private final BiConsumer<SlotContext, ItemStack> curioEquipCallback;
-    private final Function<ItemStack, Set<DamageType>> immunityProvider;
+    private Function<ItemStack, Set<DamageType>> immunityProvider;
     private final float[] glowColor; // 发光颜色
     private final List<Integer> tooltipColor; // 工具提示颜色列表
     private final SkillBinding skillBinding; // 技能绑定
@@ -364,6 +366,31 @@ public class DecorationItem extends Item implements ICurioItem, GeoItem, IDamage
     @Override
     public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag){
         super.appendHoverText(stack, level, tooltip, flag);
+        CompoundTag stackTag = stack.getOrCreateTag();
+        if (!stackTag.contains("level")) {
+            stackTag.putInt("level", 1);
+        }
+        if (!stackTag.contains("xp")) {
+            stackTag.putInt("xp", 0);
+            stackTag.putInt("maxXp", 1024);
+        }
+        int itemLevel = stackTag.getInt("level");
+        int itemXp = stackTag.getInt("xp");
+        int itemMaxXp = stackTag.getInt("maxXp");
+        tooltip.add(
+            Component.translatable(
+                "tooltip.dream_sakura.level",
+                itemLevel
+            ).withStyle(Style.EMPTY.withColor(0xFF00FF))
+        );
+        tooltip.add(
+            Component.translatable(
+                "tooltip.dream_sakura.xp",
+                itemXp,
+                itemMaxXp
+            ).withStyle(Style.EMPTY.withColor(0xADD8E6))
+        );
+
         TooltipHelper.addTooltip(itemId, stack, level, tooltip, flag, tooltipColor);
         if (this.skillBinding != null) {
             TooltipHelper.addSkillsDescription(
@@ -418,5 +445,9 @@ public class DecorationItem extends Item implements ICurioItem, GeoItem, IDamage
     @Override
     public Set<DamageType> getImmunities(ItemStack stack) {
         return immunityProvider.apply(stack);
+    }
+
+    public void setImmunityProvider(Function<ItemStack, Set<DamageType>> immunityProvider) {
+        this.immunityProvider = immunityProvider;
     }
 }

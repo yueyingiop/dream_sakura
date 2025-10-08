@@ -80,49 +80,6 @@ public class SkillBinding {
         this.lastUsedTime = time;
     }
 
-
-
-
-    // // 服务器玩家每tick检查
-    // @Mod.EventBusSubscriber(modid = dream_sakura.MODID)
-    // public static class ForgeEvents {
-    //     @SubscribeEvent
-    //     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-    //         if (event.phase == TickEvent.Phase.START && !event.player.level().isClientSide) {
-    //             for (SkillBinding binding : SkillRegistry.getBindings()) {
-                    
-    //                 if (!binding.isWearingBoundItem(event.player)) {
-    //                     binding.isActive = false;
-    //                     continue; // 未佩戴饰品，跳过处理
-    //                 }
-                    
-    //                 if (binding.isActive && binding.isCooledDown()) {
-    //                     binding.triggerSkill(event.player);
-    //                     binding.lastUsedTime = System.currentTimeMillis();
-    //                     binding.isActive = false;
-    //                 } else if (binding.isActive && !binding.isCooledDown()) {
-    //                     // 显示技能冷却中
-    //                     long remaining = binding.cooldown - (System.currentTimeMillis() - binding.lastUsedTime);
-    //                     long seconds = remaining / 1000;
-    //                     long milliseconds = remaining % 1000;
-    //                     Component message = Component.translatable("skill.cooldown")
-    //                         .append(": ")
-    //                         .append(
-    //                             Component.literal(
-    //                                 String.format("%d.%03ds", seconds, milliseconds))
-    //                                 .withStyle(ChatFormatting.RED
-    //                             )
-    //                         );
-    //                     event.player.displayClientMessage(message, true);
-    //                     binding.isActive = false; // 重置激活状态
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-
-
-
     // 客户端按键检测
     @Mod.EventBusSubscriber(modid = dream_sakura.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientEvents {
