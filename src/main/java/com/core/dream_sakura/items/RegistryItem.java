@@ -35,7 +35,7 @@ public class RegistryItem {
                 .stacksTo(1)
                 .rarity(Rarity.UNCOMMON),
             (slotContext, stack) ->{},
-            NULL_GLOW
+            GOLD_GLOW
         )
     );
     
@@ -82,7 +82,7 @@ public class RegistryItem {
                 RegistryPassiveSkill.ALS_1_Halo_Skill_2(slotContext, stack);
             },
             itemStack -> EnumSet.of(DamageType.NULL),
-            NULL_GLOW,
+            GOLD_GLOW,
             null,
             RegistryActiveSkill.ALS_1_Halo_Skill.get(),
             null
@@ -344,7 +344,7 @@ public class RegistryItem {
 
 
     //#region 经验材料
-    public static final RegistryObject<Item> JUNIOR_EXP = ITEMS.register(
+    public static final RegistryObject<Item> PRIMARY_EXP = ITEMS.register(
         "primary_exp", 
         () -> new ExpToolItem(
             new Item.Properties()
